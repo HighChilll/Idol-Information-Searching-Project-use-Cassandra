@@ -1,0 +1,9 @@
+CREATE KEYSPACE cassandra_demo WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+USE cassandra_demo;
+
+CREATE TABLE tbl_idol(birthplace TEXT, country TEXT, date_of_birth DATE, full_name TEXT, gender TEXT, group TEXT, instagram TEXT, stage_name TEXT, PRIMARY KEY(stage_name, full_name));
+
+COPY tbl_idol(stage_name, full_name, date_of_birth, group, country, birthplace, gender, instagram) FROM '<file directory>' WITH DELIMITER = ',' AND HEADER = TRUE;
+
+<file directory> = C:/My Workspace/.repos/BDES Final Term Project/idols.csv
